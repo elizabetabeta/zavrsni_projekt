@@ -10,7 +10,12 @@ class Donation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'amount',
+        'amount', 'user_id'
+    ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
     ];
 
     public function user()

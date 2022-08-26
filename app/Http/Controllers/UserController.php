@@ -103,4 +103,12 @@ class UserController extends Controller
 
         return view('users.search', compact('users', 'search'));
     }
+
+    public function deleteprofil($id)
+    {
+        DB::table('users')->where("id", $id)->delete();
+
+        return redirect('/');
+    }
+
 }

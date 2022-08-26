@@ -21,24 +21,34 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a href="{{ url('/home') }}" class="text-sm text-light underline"
+                        style="color: white">Home</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-light underline"
+                           style="color: white">Log in</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-light underline"
+                               style="color: white">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
 
-            <img style="height:600px"
-            src="https://cdn.dribbble.com/users/113499/screenshots/11353869/media/f2aec6d513bc98f4fed875f76ef284a4.png?compress=1&resize=400x300">
-                
-        </div>
     </body>
 </html>
+
+<style>
+
+    body {
+        background-image: url("https://149366112.v2.pressablecdn.com/wp-content/uploads/2019/06/ogp-6.jpg");
+        min-height: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+    }
+</style>

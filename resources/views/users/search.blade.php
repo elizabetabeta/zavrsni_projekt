@@ -59,6 +59,7 @@
                                     </a>
                                 </div>-->
                             </div>
+                            @if($users->isNotEmpty())
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-striped table-valign-middle">
                                     <thead>
@@ -102,6 +103,11 @@
                                 </div>
 
                             </div>
+                            @else
+                            <div>
+                                    <h2 class="text text-danger">Nema korisnika sa takvim nazivom.</h2>
+                                </div>
+                            @endif
                         </div>
 
                         

@@ -46,6 +46,13 @@
                                 <b>{{ $animal->status }}</b>
                             </td>
                         </tr>
+
+                        <tr>
+                          
+                            <td colspan="2">
+                                {{ $animal->description }}
+                            </td>
+                        </tr>
                         
                     </table>
                 </div>

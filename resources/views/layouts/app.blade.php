@@ -53,7 +53,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/donations">Donations</a>
                         </li>
-                       
+
                         <li class="nav-item">
                             <a class="nav-link" href="/contact">Contact</a>
                         </li>
@@ -89,7 +89,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/profile{{ auth()->user()->id }}">Moj profil</a>
+                                <a class="dropdown-item" href="/profile{{ auth()->user()->id }}">My profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

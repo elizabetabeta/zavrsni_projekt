@@ -19,6 +19,7 @@ class CreateAnimalsTable extends Migration
             $table->string('scientific_name')->nullable();
             $table->string('status')->nullable();
             $table->string('image')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

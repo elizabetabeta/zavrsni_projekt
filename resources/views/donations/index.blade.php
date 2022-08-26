@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
        
         <div class="col-md-12" id="visina">
+            <h1 class="text text-success">Amount of money donated: ${{ $number }}</h1>
             <div class="card">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -36,13 +37,11 @@
                             </div>
                         <div class="col-2">-->
 
-                        @if(Auth()->user()->role == "Admin")
                         <div class="card-body">
                         <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Add new donation
                         </button>
                         </div>
-                        @endif
 
                         <div class="card">
                             <div class="card-header border-0">
@@ -61,7 +60,8 @@
                                     <thead>
                                     <tr>
                                         <th>Donation Amount</th>
-                                        <th>User That Donated</th>   
+                                        <th>User That Donated</th> 
+                                        <th>Time donated</th>  
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -84,6 +84,12 @@
                                     @endif
                                     @endforeach                                    
                                     </td>
+                                    <td>                                      
+                                    
+                                    {{ \Carbon\Carbon::parse($donation->created_at)->diffForHumans() }} 
+                              
+                                    </td>
+                                   
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -105,53 +111,34 @@
 
                      <!-- Modal za dodavanje novog korisnika -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <form method="POST" action="{{ route('donations.store') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('donations.store') }}">
                                 @csrf
                                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Dodavanje korisnika</h5>
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Donation</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <label for="name">Donation amount</label>
-                                                <input type="text" maxlength="30"
-                                                       class="form-control @error('name') is-invalid @enderror" name="name" id="name2" value="{{ old('name') }}" placeholder="Unesite ime životinje">
+                                                <label for="amount">Donation amount</label>
+                                                <input type="number" step=".01"
+                                                       class="form-control @error('amount') is-invalid @enderror" name="amount" id="amount" value="{{ old('amount') }}" placeholder="Input the amount you want to donate">
 
-                                                @error('name')
+                                                @error('amount')
                                                      <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                      </span>
                                                 @enderror
 
                                             </div>
+                              
                                             <div class="form-group">
-                                                <label for="scientific_name">Scientific Name</label>
-                                                <input type="scientific_name" maxlength="191" class="form-control @error('scientific_name') is-invalid @enderror" name="scientific_name" id="scientific_name" placeholder="Unesite znanstveni naziv">
-
-                                                @error('scientific_name')
-                                                <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                     </span>
-                                                @enderror
-
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="status">Conservation status</label>
-                                                <input type="status" class="form-control @error('status') is-invalid @enderror" name="status" id="status" placeholder="Unesite status">
-
-                                                @error('status')
-                                                <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                     </span>
-                                                @enderror
-
-                                            </div>
-                                            <label for="image" class="col-md-4 col-form-label">Dodajte sliku</label>
-                                            <br>
-                                            <input type="file" class="form-control-file" id = "image" name="image">
+                                                <label for="user_id" hidden >user_id amount</label>
+                                                <input type="user_id" hidden
+                                                       class="form-control" name="user_id" 
+                                                       id="user_id" value="{{ auth()->user()->id }}">
 
                                         
                                         </div>

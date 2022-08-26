@@ -3,7 +3,7 @@
 @section('content')
 <div class="container" id="visina">
     <div class="row justify-content-center">
-       
+
         <div class="col-md-12" id="visina">
             <div class="card">
                 <div class="card-header text-primary">Administracija korisnika</div>
@@ -63,9 +63,11 @@
                                     <tr>
                                         <th>Ime</th>
                                         <th>E-mail</th>
+                                        <th>Role</th>
                                         <th>Profile</th>
                                         <th>Registracija</th>
-                                      
+                                        <th>Actions</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -81,16 +83,22 @@
                                             {{ $user->email }}
                                         </td>
                                         <td>
+                                            {{ $user->role }}
+                                        </td>
+                                        <td>
                                             <a href="/profile{{ $user->id }}" class="text-muted">
                                                 <i class="fas fa-search"></i>
                                             </a>
                                         </td>
-                                        
-                                       
+
+
                                         <td>
                                             {{ Carbon\Carbon::parse($user->created_at)->format('d.m.Y.') }}
                                         </td>
-                                        
+                                        <td>
+                                           <!--<button>a</button>-->
+                                        </td>
+
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -102,7 +110,7 @@
                             </div>
                         </div>
 
-                        
+
                 </div>
             </div>
         </div>
@@ -119,7 +127,7 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLongTitle">Dodavanje korisnika</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            
+
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">

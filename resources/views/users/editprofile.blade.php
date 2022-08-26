@@ -72,8 +72,8 @@
                         <br><br>
 
                         <hr>
-                        <button type="button" class="btn btn-outline-danger mb-2" data-toggle="modal"
-                                data-target="#modalForDelete">
+                        <button type="button" class="btn btn-outline-danger mb-2" data-bs-toggle="modal"
+                                data-bs-target="#modalForDelete">
                             Obriši svoj profil
                         </button>
                     </div>
@@ -93,7 +93,7 @@
                     <h5 class="modal-title text-danger" id="exampleModalLabel">
                         Jeste li sigurni da želite obrisati ovaj profil?
                     </h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body align-center">
                     <table>
@@ -105,8 +105,8 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
-                    <a href="{{ route("profile.delete", $user->id) }}" class = "btn btn-danger">Obriši</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                    <a href="{{ route('profile.delete', $user->id) }}" class = "btn btn-danger">Obriši</a>
                 </div>
             </div>
         </div>
